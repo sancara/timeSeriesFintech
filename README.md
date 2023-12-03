@@ -4,13 +4,20 @@
 ### Stocks Data
 Grab an API KEY from advantage data:
 - https://www.alphavantage.co/support/#api-key
+- Save this for setting up in mage secrets
 
-
-## Orchestration
-- Mage
-- install command:
+## Create .env
+- For this project you will need the following variables:
 ```
-git clone https://github.com/mage-ai/compose-quickstart.git mage-quickstart \
-&& cd mage-quickstart \
-&& cp dev.env .env && rm dev.env \
-&& docker compose up```
+POSTGRES_SCHEMA
+POSTGRES_USER
+POSTGRES_PASSWORD
+POSTGRES_HOST
+PG_HOST_PORT
+POSTGRES_DB
+```
+
+
+## Tools
+- Mage
+- TimeScaleDB
