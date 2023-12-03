@@ -1,6 +1,10 @@
-# Installation commands
-## TimescaleDB
-- For timescaleDB i decided to go with docker:
+# Setup
+
+## APIs
+### Stocks Data
+Grab an API KEY from advantage data:
+- https://www.alphavantage.co/support/#api-key
+
 
 ## Orchestration
 - Mage
