@@ -16,8 +16,18 @@ POSTGRES_HOST
 PG_HOST_PORT
 POSTGRES_DB
 ```
+## Command
+1. open terminal
+2. change direcotry to the path where you clone the repo
+3. run the docker compose
+```
+docker compose up
+```
+
+## Set secrets in Mage
 
 
 ## Tools
 - Mage
 - TimeScaleDB
+- Docker
