@@ -52,7 +52,7 @@ For setting up the secrets you need to go:
 - There should be two new dirs:
     - mage_data
     - magic
-- copy all the files inside financialtimeseries inside the magic folder
+- copy all the files inside financialtimeseries into the magic folder
 ```
 cp ./financialtimeseries/* ./magic/
 ```
