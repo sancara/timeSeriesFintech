@@ -29,7 +29,7 @@ For setting up the secrets you need to go:
 - 1 to edit pipeline
 - 2 to secrets
 - 3 start adding
-[Documentation](https://docs.mage.ai/development/variables/secrets)
+- [Documentation](https://docs.mage.ai/development/variables/secrets)
 ![Image1](./images/MageSecrets1.png)
 ![Image2](./images/MageSecrets2.png)
 
