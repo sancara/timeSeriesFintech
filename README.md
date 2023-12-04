@@ -33,6 +33,9 @@ For setting up the secrets you need to go:
 ![Image1](./images/MageSecrets1.png)
 ![Image2](./images/MageSecrets2.png)
 
+## SQL Analytic Function output
+![Results](./images/OutputSQL.png)
+
 ## Tools
 - Mage
 - TimeScaleDB
