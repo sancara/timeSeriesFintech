@@ -33,6 +33,12 @@ For setting up the secrets you need to go:
 ![Image1](./images/MageSecrets1.png)
 ![Image2](./images/MageSecrets2.png)
 
+## Pipeline Order
+- 1 [PullData](./financialtimeseries/data_loaders/stocksdata.py)
+- 2 [PrepareData](./financialtimeseries/transformers/preparedata.py)
+- 3 [InsertToDB](./financialtimeseries/data_exporters/inserttodb.py)
+- 4 [Analytics](./financialtimeseries/transformers/analyticfunctions.py)
+
 ## SQL Analytic Function output
 ![Results](./images/OutputSQL.png)
 
