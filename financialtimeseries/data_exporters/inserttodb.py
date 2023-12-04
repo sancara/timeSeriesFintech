@@ -30,15 +30,17 @@ def export_data_to_postgres(df: pd.DataFrame, **kwargs) -> None:
         cursor = connection.cursor()
 
         # Define the table schema
-        table_name = 'test_IBM'
+        table_name = get_secret_value('TABLE_NAME')
+       
+
         schema_definition = """
             CREATE TABLE IF NOT EXISTS {table_name} (
                 stock_datetime TIMESTAMP,
-                price_open FLOAT,
-                price_high FLOAT,
-                price_low FLOAT,
-                price_close FLOAT,
-                trading_volume INT,
+                open_price FLOAT,
+                highest_price FLOAT,
+                lowest_price FLOAT,
+                close_price FLOAT,
+                trading_volume BIGINT,
                 symbol VARCHAR(8)
                 -- Add more columns as needed
             );

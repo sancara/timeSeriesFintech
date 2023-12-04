@@ -15,7 +15,7 @@ db_params = {
     'port': get_secret_value('POSTGRES_PORT')
 }
 
-table_name = 'test_IBM'
+table_name = get_secret_value('TABLE_NAME')
 
 @transformer
 def transform_in_postgres(*args, **kwargs) -> pd.DataFrame:
@@ -29,7 +29,7 @@ def transform_in_postgres(*args, **kwargs) -> pd.DataFrame:
         analytic_query ='''
         SELECT
             symbol,
-            stock_datetime,
+            TO_CHAR(stock_datetime, 'dd/mm/yyyy') as date,
             AVG(trading_volume) OVER (PARTITION BY symbol ORDER BY stock_datetime RANGE BETWEEN '3 months' PRECEDING AND CURRENT ROW) AS avg_volume_last_quarter
         FROM
             {table_name}

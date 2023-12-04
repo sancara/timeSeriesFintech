@@ -26,13 +26,13 @@ blocks:
   language: python
   name: PrepareData
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: transformer
   upstream_blocks:
   - stocksdata
   uuid: preparedata
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: null
   configuration: {}
   downstream_blocks:
@@ -43,13 +43,13 @@ blocks:
   language: python
   name: InsertToDB
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: data_exporter
   upstream_blocks:
   - preparedata
   uuid: inserttodb
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: null
   configuration: {}
   downstream_blocks: []
@@ -85,7 +85,7 @@ settings:
 spark_config: {}
 tags: []
 type: python
-updated_at: '2023-12-04 02:32:51'
+updated_at: '2023-12-04 21:27:12'
 uuid: financialtimeseries
 variables_dir: /home/src/mage_data/magic
 widgets: []

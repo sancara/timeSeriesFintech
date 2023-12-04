@@ -1,5 +1,5 @@
 import pandas as pd
-
+import json
 
 if 'transformer' not in globals():
     from mage_ai.data_preparation.decorators import transformer
@@ -21,17 +21,48 @@ def transform(data, *args, **kwargs):
     Returns:
         Anything (e.g. data frame, dictionary, array, int, str, etc.)
     """
-    df = pd.DataFrame(data[0]['Monthly Time Series'])
     
-    df = df.T
-    df.reset_index(inplace=True)
-    df.columns = ['stock_datetime','price_open', 'price_high', 'price_low', 'price_close', 'trading_volume']
-    df['symbol'] = data[1]
+    
+    # Extract symbols and data
+    result = {}
+    for symbol, symbol_data in data.items():
+        if "Meta Data" in symbol_data and "Monthly Time Series" in symbol_data:
+            meta_data = symbol_data["Meta Data"]
+            time_series = symbol_data["Monthly Time Series"]
+
+            formatted_data = {date: {
+                "open": value["1. open"],
+                "high": value["2. high"],
+                "low": value["3. low"],
+                "close": value["4. close"],
+                "volume": value["5. volume"]
+            } for date, value in time_series.items()}
+
+            result[symbol] = formatted_data
+
+    rows = []
+
+    # Iterate over symbols and dates
+    for symbol, symbol_data in result.items():
+        for date, values in symbol_data.items():
+            row = {
+                'stock_datetime': date,
+                'open_price': float(values['open']),
+                'highest_price': float(values['high']),
+                'lowest_price': float(values['low']),
+                'close_price': float(values['close']),
+                'trading_volume': int(values['volume']),
+                'symbol': symbol
+            }
+            rows.append(row)
+
+    # Create a Pandas DataFrame
+    df = pd.DataFrame(rows)
     pd.to_datetime(df['stock_datetime'], format='%Y-%m-%d')
 
-    print(df.info())
-
+    # Print the DataFrame
     return df
+    
 
 
 @test
