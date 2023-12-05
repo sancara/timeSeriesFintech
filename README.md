@@ -75,7 +75,8 @@ cp ./financialtimeseries/* ./magic/
 - 4 [Analytics](./financialtimeseries/transformers/analyticfunctions.py)
 
 ## SQL Analytic Function output
-![Results](./images/OutputSQL.png)
+![Results](./images/Results.png)
+[Results](./analyticfunctions.csv)
 
 ## Tools
 - [Mage](https://docs.mage.ai/introduction/overview)
